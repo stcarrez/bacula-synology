@@ -18,6 +18,8 @@ PrepareDirs() {
 SetupPackageFiles() {
     make install DESTDIR=${INST_DIR}
     mv ${INST_DIR}/sbin ${INST_DIR}/bin
+    mkdir ${INST_DIR}/sbin
+    cp ${INST_DIR}/bin/bsmtp ${INST_DIR}/sbin
     mv ${INST_DIR}/usr/lib ${INST_DIR}/lib
     rm ${INST_DIR}/lib/*.a
     cp /usr/lib/libacl.so.1 ${INST_DIR}/lib
