@@ -1,0 +1,17 @@
+#!/bin/sh
+# Copyright (c) 2000-2021 Synology Inc. All rights reserved.
+
+PKG_NAME=bacula
+INST_DIR=/tmp/_${PKG_NAME}
+
+case ${MakeClean} in
+    [Yy][Ee][Ss])
+        # make distclean
+        ;;
+esac
+
+#./configure \
+#    --with-postgresql \
+#    --enable-static
+
+make ${MAKE_FLAGS}

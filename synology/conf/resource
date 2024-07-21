@@ -1,0 +1,48 @@
+{
+   "systemd-user-unit": {},
+   "usr-local-linker": {
+        "bin": [
+	  "bin/bacula",
+	  "bin/bacula-fd",
+	  "bin/bbconsjson",
+	  "bin/bcopy",
+	  "bin/bextract",
+	  "bin/bls",
+	  "bin/bscan",
+	  "bin/bsmtp",
+	  "bin/btraceback",
+	  "bin/dbcheck",
+	  "bin/bacula-dir",
+	  "bin/bacula-sd",
+	  "bin/bconsole",
+	  "bin/bdirjson",
+	  "bin/bfdjson",
+	  "bin/bregex",
+	  "bin/bsdjson",
+	  "bin/btape",
+	  "bin/bwild"
+        ],
+	"lib": [
+	  "lib/libacl.so.1",
+	  "lib/libssl.so.1.0.0",
+	  "lib/libcrypto.so.1.0.0",
+	  "lib/libncurses.so.5",
+	  "lib/libncursesw.so.5",
+	  "lib/bpipe-fd.so",
+          "lib/libbac.so",
+	  "lib/libbac-13.0.4.so",
+          "lib/libbaccats-postgresql.so",
+	  "lib/libbacsql-13.0.4.so",
+	  "lib/libbaccats.so",
+          "lib/libbacfind.so",
+	  "lib/libbaccats-13.0.4.so",
+          "lib/libbaccfg-13.0.4.so",
+	  "lib/libbacsd-13.0.4.so",
+	  "lib/libbacsql.so",
+          "lib/libbaccats-postgresql-13.0.4.so",
+	  "lib/libbaccfg.so",
+          "lib/libbacfind-13.0.4.so",
+	  "lib/libbacsd.so"
+	]
+    }
+}

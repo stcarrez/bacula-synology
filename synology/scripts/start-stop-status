@@ -1,0 +1,46 @@
+#!/bin/sh
+# Copyright (C) 2000-2021 Synology Inc. All rights reserved.
+
+DAEMON=/usr/local/bin/bacula-dir
+NAME="bacula-dir"
+PORT=9101
+DESC="Bacula Director"
+BUSER="bacula"
+BGROUP="bacula"
+
+if [ ! -x $DAEMON ] ; then
+	echo "No bacula-director SQL package installed"
+	exit 0
+fi
+
+PIDFILE=/run/bacula/$NAME.$PORT.pid
+
+do_start()
+{
+	systemctl start pkg-bacula
+}
+
+do_stop()
+{
+    systemctl stop pkg-bacula
+}
+
+
+case $1 in
+	start)
+	    do_start
+		exit 0
+	;;
+	stop)
+	    do_stop
+		exit 0
+	;;
+	status)
+		if [ -h "/usr/local/bin/bacula-dir" ]; then
+			exit 0
+		else
+			exit 1
+		fi
+	;;
+esac
+
