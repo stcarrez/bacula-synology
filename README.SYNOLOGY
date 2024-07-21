@@ -1,6 +1,6 @@
 ## Synology package creation for DS218+
 
-* https://help.synology.com/developer-guide/
+Read Synology Developer's guide: https://help.synology.com/developer-guide/
 
 ```
 mkdir toolkit
@@ -22,6 +22,13 @@ cd source
 git clone https://github.com/stcarrez/bacula-synology bacula
 ```
 
+Extract bacula-13.0.4.tar.gz (or another version):
+
+```
+cd bacula
+tar xf bacula-13.0.4.tar.gz --strip-components=1
+```
+
 ## Package creation
 
 ```
@@ -34,4 +41,31 @@ and package is created in:
 ```
 build_env/ds.apollolake-7.1/image/packages/bacula-apollolake-13.0.4_debug.spk
 build_env/ds.apollolake-7.1/image/packages/bacula-apollolake-13.0.4.spk
+```
+
+## Install on Synology
+
+Go in "Package Center" -> "Manual Install" -> Upload the generated .spk file
+
+## Bacula setup on Synology
+
+Setup configuration through ssh:
+
+```
+ssh <synology> <user>
+```
+
+Put bacula configuration in `/etc/bacula`.
+Run on Synology host:
+
+```
+sudo systemctl enable pkg-bacula
+sudo systemctl enable pkg-bacula-fd
+```
+
+Start on Synology host:
+
+```
+sudo systemctl start pkg-bacula
+sudo systemctl start pkg-bacula-fd
 ```
