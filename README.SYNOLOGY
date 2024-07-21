@@ -1,0 +1,37 @@
+## Synology package creation for DS218+
+
+* https://help.synology.com/developer-guide/
+
+```
+mkdir toolkit
+cd toolkit
+git clone -b DSM7.1 https://github.com/SynologyOpenSource/pkgscripts-ng
+cd pkgscripts-ng
+sudo apt-get install cifs-utils
+sudo ./EnvDeploy -v 7.1 -p apollolake
+```
+
+Note: it seems that running `./EnvDeploy` as root is necessary.
+
+## Backup sources
+
+```
+cd tookit
+mkdir source
+cd source
+git clone https://github.com/stcarrez/bacula-synology bacula
+```
+
+## Package creation
+
+```
+cd toolkit/pkgscripts-ng
+sudo ./PkgCreate.py -v 7.1 -p apollolake bacula
+```
+
+and package is created in:
+
+```
+build_env/ds.apollolake-7.1/image/packages/bacula-apollolake-13.0.4_debug.spk
+build_env/ds.apollolake-7.1/image/packages/bacula-apollolake-13.0.4.spk
+```
