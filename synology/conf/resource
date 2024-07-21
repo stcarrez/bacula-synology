@@ -9,7 +9,6 @@
 	  "bin/bextract",
 	  "bin/bls",
 	  "bin/bscan",
-	  "bin/bsmtp",
 	  "bin/btraceback",
 	  "bin/dbcheck",
 	  "bin/bacula-dir",
@@ -22,6 +21,9 @@
 	  "bin/btape",
 	  "bin/bwild"
         ],
+	"sbin": [
+	  "sbin/bsmtp"
+	],
 	"lib": [
 	  "lib/libacl.so.1",
 	  "lib/libssl.so.1.0.0",

@@ -15,8 +15,8 @@
 
 # from http://www.freedesktop.org/software/systemd/man/systemd.unit.html
 [Unit]
-Description=Bacula Daemon service
-Documentation=man:bacula-dir(8)
+Description=Bacula Storage service
+Documentation=man:bacula-sd(8)
 Requires=network.target
 After=network.target
 # RequiresMountsFor=/var/lib/bacula /etc/bacula /usr/sbin
@@ -25,12 +25,12 @@ After=network.target
 [Service]
 User=bacula
 Group=bacula
-Environment="CONFIG=/etc/bacula/bacula-dir.conf"
+Environment="CONFIG=/etc/bacula/bacula-sd.conf"
 Environment="LD_LIBRARY_PATH=/usr/local/lib"
-EnvironmentFile=-/etc/default/bacula-dir
-ExecStartPre=/usr/local/bin/bacula-dir -t -c $CONFIG
-ExecStart=/usr/local/bin/bacula-dir -fP -c $CONFIG
-ExecReload=/usr/local/bin/bacula-dir -t -c $CONFIG
+EnvironmentFile=-/etc/default/bacula-sd
+ExecStartPre=/usr/local/bin/bacula-sd -t -c $CONFIG
+ExecStart=/usr/local/bin/bacula-sd -fP -c $CONFIG
+ExecReload=/usr/local/bin/bacula-sd -t -c $CONFIG
 ExecReload=/bin/kill -HUP $MAINPID
 SuccessExitStatus=15
 Restart=on-failure
